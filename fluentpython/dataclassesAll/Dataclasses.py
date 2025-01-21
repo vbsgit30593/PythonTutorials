@@ -1,21 +1,24 @@
-from typing import NamedTuple, ClassVar
 from dataclasses import InitVar, dataclass, field
+from typing import ClassVar, NamedTuple
+
 
 class Coordinate(NamedTuple):
-    lat : float
-    lon : float
+    lat: float
+    lon: float
 
     def __str__(self) -> str:
         return f"({self.lat}, {self.lon})"
+
 
 @dataclass(frozen=True)
 class Coordinates:
-    lat : float
-    lon : float
-    check : set[int] = field(default_factory=set)
+    lat: float
+    lon: float
+    check: set[int] = field(default_factory=set)
 
     def __str__(self) -> str:
         return f"({self.lat}, {self.lon})"
+
 
 @dataclass
 class DemoDataClass:
@@ -29,4 +32,4 @@ class DemoDataClass:
     # check2: frozenset[str] = frozenset({"asdsa", "asdas"})
 
     def __post_init__(self, initvar):
-        print (initvar)
+        print(initvar)
